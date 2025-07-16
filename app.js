@@ -9,19 +9,19 @@ const firebaseConfig = {
   measurementId: "G-T9CFVMMZ3J"
 };
 
-// Initialize Firebase once
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Optional: Initialize Analytics (make sure you have the analytics script in your HTML)
+// Optional: Analytics
 if (firebase.analytics) {
   firebase.analytics();
 }
 
-// Get Auth and Firestore instances
+// Auth & Firestore
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// Register user function — called by the form
+// 👑 Register Function
 function registerUser(email, password) {
   auth.createUserWithEmailAndPassword(email, password)
     .then(async (userCredential) => {
@@ -40,7 +40,7 @@ function registerUser(email, password) {
     });
 }
 
-// Royal message function for button (make sure you have <p id="message"></p> in HTML)
+// 👑 Royal Message
 function royalMessage() {
   const message = document.getElementById("message");
   if (message) {
@@ -48,6 +48,6 @@ function royalMessage() {
   }
 }
 
-// Make functions global so HTML can access them
+// Expose to HTML
 window.registerUser = registerUser;
 window.royalMessage = royalMessage;
