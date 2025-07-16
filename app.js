@@ -13,7 +13,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Optional: Analytics
-if (firebase.analytics) {
+if (typeof firebase.analytics === "function") {
   firebase.analytics();
 }
 
@@ -40,6 +40,20 @@ function registerUser(email, password) {
     });
 }
 
+// 🔑 Login Function
+function loginUser(email, password) {
+  auth.signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      alert(`👑 Welcome back, Royal ${user.email}!`);
+      window.location.href = "dashboard.html"; // Redirect after login
+    })
+    .catch((error) => {
+      console.error("❌ Login error:", error);
+      alert("Login Failed: " + error.message);
+    });
+}
+
 // 👑 Royal Message
 function royalMessage() {
   const message = document.getElementById("message");
@@ -48,37 +62,7 @@ function royalMessage() {
   }
 }
 
-// Expose to HTML
+// Make functions global so HTML can call them
 window.registerUser = registerUser;
+window.loginUser = loginUser;
 window.royalMessage = royalMessage;
-// Firebase config + initialize
-// auth & db setup
-
-// 🔐 Register function
-function registerUser(email, password) {
-  // ...registration logic...
-}
-
-// 👑 Royal message button
-function royalMessage() {
-  // ...message logic...
-}
-
-// 🔑 Login function (ADD HERE at the bottom!)
-function loginUser(email, password) {
-  auth.signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      alert(`👑 Welcome back, Royal ${user.email}!`);
-      window.location.href = "dashboard.html";
-    })
-    .catch((error) => {
-      console.error("❌ Login error:", error);
-      alert("Login Failed: " + error.message);
-    });
-}
-
-// Make functions global
-window.registerUser = registerUser;
-window.royalMessage = royalMessage;
-window.loginUser = loginUser; // ✅ Include this line!
