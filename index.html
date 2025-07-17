@@ -13,8 +13,17 @@
   </header>
 
   <main>
+    <!-- Login form placed here -->
+    <form id="loginForm">
+      <h2>Royal Login</h2>
+      <input type="email" id="email" placeholder="Your royal email" required />
+      <input type="password" id="password" placeholder="Your secret password" required />
+      <button type="submit">Login</button>
+    </form>
+
     <button onclick="royalMessage()">Click for a royal message</button>
     <p id="message"></p>
+
     <!-- You can also add a link to register page -->
     <a href="register.html">Register Here</a>
   </main>
@@ -33,22 +42,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
-
-<body>
-  <!-- 👑 Login Form should go here -->
-  <form id="loginForm">
-    <h2>Royal Login</h2>
-    <input type="email" id="email" placeholder="Your royal email" required />
-    <input type="password" id="password" placeholder="Your secret password" required />
-    <button type="submit">Login</button>
-  </form>
-
-  <!-- Firebase SDKs 👇 -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-
-  <!-- Your Royal app logic -->
-  <script src="app.js"></script>
-</body> 
