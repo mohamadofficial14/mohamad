@@ -1,4 +1,3 @@
-console.log
 // 👑 Firebase setup
 const firebaseConfig = {
   apiKey: "AIzaSyCnpl5iwC1dzfClgHeQ6EEQsljqDkqSzDU",
@@ -68,26 +67,7 @@ window.registerUser = registerUser;
 window.loginUser = loginUser;
 window.royalMessage = royalMessage;
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Script running!");
-
-  const form = document.getElementById("loginForm");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        console.log("LOGIN SUCCESSFUL:", userCredential.user);
-        window.location.href = "dashboard.html";
-      })
-      .catch((error) => {
-        console.error("LOGIN ERROR:", error.message);
-        alert("Login Failed: " + error.message);
-      });
-  });
-}); 
+// 👑 Banned User Check
 firebase.auth().onAuthStateChanged(async (user) => {
   if (user) {
     const bannedDoc = await db.collection("bannedUsers").doc(user.uid).get();
