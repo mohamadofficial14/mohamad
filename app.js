@@ -88,3 +88,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 }); 
+firebase.auth().onAuthStateChanged(async (user) => {
+  if (user) {
+    const bannedDoc = await db.collection("bannedUsers").doc(user.uid).get();
+    if (bannedDoc.exists) {
+      document.body.innerHTML = `
+        <div style="background:#cc1818; color:#fff; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; font-family:sans-serif; padding:20px;">
+          <div style="font-size:100px; margin-bottom:20px;">⛔</div>
+          <h1>You have been banned from the website.</h1>
+          <p>Confused? Then please contact my YouTube Channel <strong>@RunnerBot</strong> to know your ban reason and length.</p>
+        </div>
+      `;
+    }
+  }
+});
