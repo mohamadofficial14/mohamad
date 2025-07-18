@@ -175,3 +175,20 @@
   <p>Long live the King, his Knight, and his Royal Advisor 😊👑</p>
 </body>
 </html>
+
+<script>
+  setTimeout(function() {
+    // Redirects after 1 minute to the official Clown Anthem™
+    window.location.href = "https://youtube.com/shorts/eQ1s1aS26Nw?si=WpR5j8Lo6OnS7N2G";
+  }, 60000); // 60 seconds = 1 minute
+</script>
+<p id="timer">⏳ You’ve got 60 seconds before the trumpet reveals your shame...</p>
+<script>
+  let timeLeft = 60;
+  const timerDisplay = document.getElementById("timer");
+  const countdown = setInterval(() => {
+    timeLeft--;
+    timerDisplay.textContent = `⏳ You’ve got ${timeLeft} seconds before the trumpet reveals your shame...`;
+    if (timeLeft <= 0) clearInterval(countdown);
+  }, 1000);
+</script>
