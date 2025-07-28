@@ -192,3 +192,75 @@
     if (timeLeft <= 0) clearInterval(countdown);
   }, 1000);
 </script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clear Website Cache & Temporary Data</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #ffa200;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .btn {
+      background-color: #ffa200;
+      color: white;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(98, 0, 234, 0.5);
+      user-select: none;
+      outline: none;
+      position: relative;
+    }
+
+    .btn:hover {
+      background-color: #a87316;
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(55, 0, 179, 0.7);
+    }
+
+    .btn:active {
+      animation: press 0.2s forwards;
+    }
+
+    @keyframes press {
+      0% {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(55, 0, 179, 0.7);
+      }
+      50% {
+        transform: scale(0.95);
+        box-shadow: 0 3px 10px rgba(55, 0, 179, 0.4);
+      }
+      100% {
+        transform: scale(1.1);
+        box-shadow: 0 10px 25px rgba(55, 0, 179, 0.7);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn" id="animatedBtn">Click Me</button>
+
+  <script>
+    // Optional: You can add extra interactivity here if needed
+    const btn = document.getElementById('animatedBtn');
+    btn.addEventListener('click', () => {
+      alert('website cache cleared!');
+    });
+  </script>
+
+</body>
+</html>
