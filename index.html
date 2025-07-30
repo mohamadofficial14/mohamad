@@ -192,3 +192,19 @@
     if (timeLeft <= 0) clearInterval(countdown);
   }, 1000);
 </script>
+
+<script>
+  setTimeout(function() {
+    /";
+  }, 12000000000000); // 120 seconds = 2 minutes
+</script>
+<p id="timer">⏳ You’ve got some seconds before the trumpet reveals your shame...</p>
+<script>
+  let timeLeft = 60;
+  const timerDisplay = document.getElementById("timer");
+  const countdown = setInterval(() => {
+    timeLeft--;
+    timerDisplay.textContent = `⏳ You have been placed in timeout by the owner of the site for ${timeLeft} seconds ...`;
+    if (timeLeft <= 0) clearInterval(countdown);
+  }, 1000);
+</script>
